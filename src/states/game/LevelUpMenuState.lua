@@ -1,18 +1,18 @@
-BattleLevelUpState = Class{__includes = BaseState}
+LevelUpMenuState = Class{__includes = BaseState}
 
-function BattleLevelUpState:init(def)
+function LevelUpMenuState:init(def)
 	self.levelUpMenu = Menu {
-		x = 40,
-		y = 20,
-		width = 200,
-		height = 120,
+		x = 30,
+		y = 15,
+		width = 150,
+		height = 100,
 		items = def.statItems,
 		cursorEnabled = false
 	}
 	self.onClose = def.onClose
 end
 
-function BattleLevelUpState:update(dt)
+function LevelUpMenuState:update(dt)
 	self.levelUpMenu:update(dt)
 
 	if love.keyboard.wasPressed('enter') or love.keyboard.wasPressed('return') then
@@ -21,6 +21,6 @@ function BattleLevelUpState:update(dt)
 	end
 end
 
-function BattleLevelUpState:render()
+function LevelUpMenuState:render()
 	self.levelUpMenu:render()
 end

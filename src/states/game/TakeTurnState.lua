@@ -215,23 +215,23 @@ function TakeTurnState:victory()
                         local hpInc, attackInc, defInc, speedInc = self.playerPokemon:levelUp()
                         local statSummary = {
                             {
-                                text = 'HP: ' .. self.playerPokemon.HP .. ' + ' .. hpInc .. ' = ' .. self.playerPokemon.HP + hpInc
+                                text = 'HP:' .. self.playerPokemon.HP .. '+' .. hpInc .. '=' .. self.playerPokemon.HP + hpInc
                             },
                             {
-                                text = 'Attack: ' .. self.playerPokemon.attack .. ' + ' .. attackInc .. ' = ' .. self.playerPokemon.attack + attackInc 
+                                text = 'Attack:' .. self.playerPokemon.attack .. '+' .. attackInc .. '=' .. self.playerPokemon.attack + attackInc 
                             },
                             {
-                                text = 'Defense: ' .. self.playerPokemon.defense.. ' + ' .. defInc .. ' = ' .. self.playerPokemon.defense + defInc 
+                                text = 'Defense:' .. self.playerPokemon.defense.. '+' .. defInc .. '=' .. self.playerPokemon.defense + defInc 
                             },
                             {
-                                text = 'Speed: ' .. self.playerPokemon.speed.. ' + ' .. speedInc .. ' = ' .. self.playerPokemon.speed + speedInc 
+                                text = 'Speed:' .. self.playerPokemon.speed.. '+' .. speedInc .. '=' .. self.playerPokemon.speed + speedInc 
                             }
                         }
 
-                        gStateStack:push(BattleMessageState('Congratulations! Level Up!',
+                        gStateStack:push(BattleMessageState('Level Up!',
                         function()
                             gStateStack:push(
-                                BattleLevelUpState({
+                                LevelUpMenuState({
                                     statItems = statSummary,
                                     onClose = self.fadeOutWhite
                                 })
